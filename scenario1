@@ -1,19 +1,24 @@
- const {Builder,By} = require("selenium-webdriver");
- async function example(){
-     let driver = await new Builder().forBrowser("firefox").build();
-     await driver.get("https://www.epam.com/");
-     let search = await driver.findElement(By.className("cta-button-ui cta-button--envelope header__control"));
-     search.click();
-     let currurl = await driver.getCurrentUrl();
-     console.log(currurl);
-     let search2 = await driver.findElement(By.className("title-ui title--center color-light-green"));
-     let text1 = await search2.getText();
-     console.log(text1);
-     if((currurl = "https://www.epam.com/about/who-we-are/contact") && (text1 = "GLOBAL HEADQUARTERS")){
-     console.log("1 ok");
-     } else {
-          console.log("1 not ok");
-      }
-    driver.quit();
- }
- example();
+const {Builder,By} = require("selenium-webdriver");
+class First_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/");
+    let search = await this.driver.findElement(By.className("cta-button-ui cta-button--envelope header__control"));
+    search.click();
+    let currurl = await this.driver.getCurrentUrl();
+    console.log(currurl);
+    let search2 = await this.driver.findElement(By.className("title-ui title--center color-light-green"));
+    let text1 = await search2.getText();
+    console.log(text1);
+    if((currurl = "https://www.epam.com/about/who-we-are/contact") && (text1 = "GLOBAL HEADQUARTERS")){
+    console.log("1 ok");
+    } else {
+         console.log("1 not ok");
+     }
+   this.driver.quit();
+}
+}
+const test = new First_class();
+test.example();
