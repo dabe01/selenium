@@ -1,0 +1,23 @@
+const {Builder,By} = require("selenium-webdriver");
+class Eighth_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/insights/");
+    await this.driver.findElement(By.className("button-ui bg-color-light-blue cookie-disclaimer__button")).click();
+    let search = await this.driver.findElement(By.className("button__content button__content--desktop"));
+    search.click();
+    let currurl = await this.driver.getCurrentUrl();
+     let search3 = await this.driver.findElement(By.className("title-ui title--center title--mixed-case"));
+     let text1 = await search3.getText();
+     if ((currurl = "https://www.epam.com/careers/blog") && (text1 = "Greetings, Innovators!")){
+     console.log("8 ok");
+     } else {
+          console.log("8 not ok");
+      }
+    this.driver.quit();
+}
+}
+const test = new Eighth_class();
+test.example();
