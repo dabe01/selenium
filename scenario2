@@ -9,9 +9,9 @@ async example(){
     let text1 = await search2.getText();
     console.log(text1);
     if( (text1 = "GLOBAL HEADQUARTERS")){
-    console.log("1 ok");
+    console.log("2 ok");
     } else {
-         console.log("1 not ok");
+         console.log("2 not ok");
      }
    this.driver.quit();
 }
