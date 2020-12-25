@@ -1,0 +1,22 @@
+const {Builder,By} = require("selenium-webdriver");
+class Fifth_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/");
+    let search = await this.driver.findElement(By.className("location-selector__button"));
+    search.click();
+    let search2 = await this.driver.findElement(By.className("location-selector__title"));
+    let text1 = await search2.getText();
+    console.log(text1);
+    if (text1 = "SELECT A REGION AND A LANGUAGE"){
+    console.log("5 ok");
+    } else {
+         console.log("5 not ok");
+     }
+   this.driver.quit();
+}
+}
+const test = new Fifth_class();
+test.example();
