@@ -9,7 +9,6 @@ async example(){
     search.click();
     let search2 = await this.driver.findElement(By.className("header-search__submit"));
     let text1 = await search2.getText();
-    console.log(text1);
     if (text1 = "FIND"){
     console.log("4 ok");
     } else {
