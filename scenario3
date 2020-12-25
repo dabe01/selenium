@@ -1,0 +1,23 @@
+const {Builder,By} = require("selenium-webdriver");
+class Third_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/");
+    this.driver.findElement(By.className("button-ui bg-color-light-blue cookie-disclaimer__button")).click();
+    let search = this.driver.findElement(By.className("header-search__button header__icon"));
+    search.click();
+    let searchBar = this.driver.findElement(By.name('q'));
+    await searchBar.sendKeys("Cloud",Key.RETURN);
+    let url1 = await this.driver.getCurrentUrl();
+    if (url1="https://www.epam.com/search?q=Cloud"){
+        console.log("2 ok")
+    }else{
+        console.log("2 not ok")
+    }
+this.driver.quit();
+}
+}
+const test = new Third_class();
+test.example();
