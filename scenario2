@@ -7,7 +7,6 @@ async example(){
     await this.driver.get("https://www.epam.com/");
     let search2 = await this.driver.findElement(By.className("title-slider__slide-row"));
     let text1 = await search2.getText();
-    console.log(text1);
     if( (text1 = "GLOBAL HEADQUARTERS")){
     console.log("2 ok");
     } else {
