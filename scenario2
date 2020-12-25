@@ -1,5 +1,5 @@
 const {Builder,By} = require("selenium-webdriver");
-class First_class{
+class Second_class{
 constructor(){
        this.driver = new Builder().forBrowser("firefox").build();
    }
@@ -16,5 +16,5 @@ async example(){
    this.driver.quit();
 }
 }
-const test = new First_class();
+const test = new Second_class();
 test.example();
