@@ -12,9 +12,9 @@ async example(){
     await searchBar.sendKeys("Cloud",Key.RETURN);
     let url1 = await this.driver.getCurrentUrl();
     if (url1="https://www.epam.com/search?q=Cloud"){
-        console.log("2 ok")
+        console.log("3 ok")
     }else{
-        console.log("2 not ok")
+        console.log("3 not ok")
     }
 this.driver.quit();
 }
