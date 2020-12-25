@@ -1,0 +1,25 @@
+const {Builder,By} = require("selenium-webdriver");
+class Sixth_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/");
+    await this.driver.findElement(By.className("button-ui bg-color-light-blue cookie-disclaimer__button")).click();
+    let search = await this.driver.findElement(By.className("infochart-cell__title color-light-yellow"));
+    search.click();
+    let currurl = await this.driver.getCurrentUrl();
+    console.log(currurl);
+     let search2 = await this.driver.findElement(By.className("title-ui title--center title--mixed-case"));
+     let text1 = await search2.getText();
+     console.log(text1);
+     if ((currurl = "https://www.epam.com/our-work/case-studies/southwest-airlines-digital-wayfinding-design-and-prototype") && (text1 = "Southwest Airlines: Digital Wayfinding Design & Prototype")){
+     console.log("6 ok");
+     } else {
+          console.log("6 not ok");
+      }
+    this.driver.quit();
+}
+}
+const test = new Sixth_class();
+test.example();
