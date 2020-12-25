@@ -1,0 +1,25 @@
+const {Builder,By} = require("selenium-webdriver");
+class Seventh_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/");
+    await this.driver.findElement(By.className("button-ui bg-color-light-blue cookie-disclaimer__button")).click();
+    let search = await this.driver.findElement(By.className("featured-content-card-ui featured-content-card--large featured-content-card--first-image featured-content-card--block-1"));
+    search.click();
+    let search2 = await this.driver.findElement(By.className("pagination__block pagination--right"));
+    search2.click();
+    let currurl = await this.driver.getCurrentUrl();
+     let search3 = await this.driver.findElement(By.className("news-page__top-title"));
+     let text1 = await search3.getText();
+     if ((currurl = "https://www.epam.com/about/newsroom/press-releases/2020/epam-wins-estee-lauder-hackathon-2020-awards") && (text1 = "PRESS RELEASE: DECEMBER 16, 2020")){
+     console.log("7 ok");
+     } else {
+          console.log("7 not ok");
+      }
+    this.driver.quit();
+}
+}
+const test = new Seventh_class();
+test.example();
