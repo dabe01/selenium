@@ -8,10 +8,8 @@ async example(){
     let search = await this.driver.findElement(By.className("cta-button-ui cta-button--envelope header__control"));
     search.click();
     let currurl = await this.driver.getCurrentUrl();
-    console.log(currurl);
     let search2 = await this.driver.findElement(By.className("title-ui title--center color-light-green"));
     let text1 = await search2.getText();
-    console.log(text1);
     if((currurl = "https://www.epam.com/about/who-we-are/contact") && (text1 = "GLOBAL HEADQUARTERS")){
     console.log("1 ok");
     } else {
