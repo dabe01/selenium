@@ -1,0 +1,22 @@
+const {Builder,By} = require("selenium-webdriver");
+class Fourth_class{
+constructor(){
+       this.driver = new Builder().forBrowser("firefox").build();
+   }
+async example(){
+    await this.driver.get("https://www.epam.com/");
+    let search = await this.driver.findElement(By.className("header-search__button header__icon"));
+    search.click();
+    let search2 = await this.driver.findElement(By.className("header-search__submit"));
+    let text1 = await search2.getText();
+    console.log(text1);
+    if (text1 = "FIND"){
+    console.log("4 ok");
+    } else {
+         console.log("4 not ok");
+     }
+   this.driver.quit();
+}
+}
+const test = new Fourth_class();
+test.example();
